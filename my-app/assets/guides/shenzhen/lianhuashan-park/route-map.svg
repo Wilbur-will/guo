@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#efe7cf"/>
+  <path d="M120 625 C210 260 425 95 660 135 C900 175 1040 360 1100 625 Z" fill="#87aa6c"/>
+  <path d="M170 640 C320 450 455 370 610 330 C750 295 900 315 1035 390" fill="none" stroke="#6f8f58" stroke-width="32" stroke-linecap="round"/>
+  <path d="M185 630 C330 455 462 382 612 345 C748 312 890 330 1020 400" fill="none" stroke="#eed38a" stroke-width="14" stroke-linecap="round"/>
+  <rect x="690" y="515" width="230" height="82" rx="14" fill="#b85a44"/>
+  <text x="110" y="95" font-size="40" font-family="Arial, sans-serif" fill="#314526" font-weight="700">莲花山公园</text>
+  <text x="710" y="575" font-size="28" font-family="Arial, sans-serif" fill="#fff" font-weight="700">市民中心方向</text>
+</svg>

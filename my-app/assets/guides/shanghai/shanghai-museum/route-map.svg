@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#f1efe9"/>
+  <rect x="120" y="90" width="960" height="580" rx="38" fill="#d8d1c5" stroke="#a88b60" stroke-width="10"/>
+  <circle cx="600" cy="380" r="190" fill="#b85a45"/>
+  <rect x="430" y="240" width="340" height="280" rx="20" fill="#ead8a8"/>
+  <path d="M600 120 V640 M300 380 H900" stroke="#8a6a4b" stroke-width="18" opacity=".45"/>
+  <text x="165" y="65" font-size="40" font-family="Arial, sans-serif" fill="#3f362c" font-weight="700">上海博物馆</text>
+</svg>

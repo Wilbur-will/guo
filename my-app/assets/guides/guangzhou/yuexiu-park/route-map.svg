@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820">
+  <rect width="1200" height="820" fill="#eef5e8"/>
+  <path d="M70 680 C180 430 310 250 520 300 C650 330 720 160 910 190 C1040 210 1110 310 1160 450 L1160 820 L70 820 Z" fill="#8fbd7a"/>
+  <path d="M110 690 C250 520 360 430 500 455 C680 488 720 330 880 310 C1010 292 1080 385 1135 475" fill="none" stroke="#ecd493" stroke-width="28" stroke-linecap="round"/>
+  <ellipse cx="300" cy="690" rx="180" ry="62" fill="#91c4d4" opacity=".85"/>
+  <ellipse cx="785" cy="670" rx="220" ry="76" fill="#91c4d4" opacity=".8"/>
+  <rect x="610" y="275" width="120" height="150" rx="10" fill="#b75b42"/>
+  <path d="M600 275 L670 210 L740 275 Z" fill="#cfab3e"/>
+  <rect x="345" y="395" width="130" height="92" rx="18" fill="#e8d8b5"/>
+  <text x="64" y="78" fill="#365b3a" font-size="34" font-family="Arial, sans-serif" font-weight="700">越秀公园导览示意图</text>
+  <text x="765" y="760" fill="#365b3a" font-size="28" font-family="Arial, sans-serif">五羊石像 · 镇海楼 · 古城墙</text>
+</svg>

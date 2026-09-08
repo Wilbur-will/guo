@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>文化导览</title>
+    <!-- 引入拆分出去的 CSS 文件 -->
+    <link rel="stylesheet" href="css/style.css?v=route-lightweight-1">
+</head>
+<body>
+
+<div class="app-container">
+    <div class="language-gate" id="languageGate">
+        <div class="language-card">
+            <h1 data-i18n="languageTitle">选择显示语言</h1>
+            <p data-i18n="languageSubtitle">请选择进入后的界面语言，之后可在页面右上角切换。</p>
+            <div class="language-actions">
+                <button type="button" onclick="setLanguage('zh')" data-i18n="languageChinese">全部中文</button>
+                <button type="button" onclick="setLanguage('en')" data-i18n="languageEnglish">All English</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- =========================================
+         1. 首页内容区域
+         ========================================= -->
+    <div class="main-content" id="mainPage">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="nav-tabs">
+                <button class="active" type="button" onclick="backToHome()" data-i18n="home">首页</button>
+                <button type="button" onclick="openDiscoverPage()" data-i18n="discover">发现</button>
+                <button type="button" onclick="openSmartRoutePage()" data-i18n="smartRouteTab">路线</button>
+            </div>
+            <div class="header-icons">
+                <button class="language-toggle" id="languageToggle" type="button" onclick="setLanguage(currentLanguage === 'en' ? 'zh' : 'en')">EN</button>
+                <button class="icon-btn yellow" type="button" onclick="showLocationPicker({ target: 'discover' })" aria-label="当前位置">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.5-5.8 6.5-12A6.5 6.5 0 0 0 5.5 9C5.5 15.2 12 21 12 21Z"></path><circle cx="12" cy="9" r="2.4"></circle></svg>
+                </button>
+                <button class="icon-btn" type="button" onclick="openSearch()" aria-label="搜索">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.2"></circle><path d="m16 16 4.2 4.2"></path></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- 主推横滑卡片 - 显示4个推荐帖子 -->
+        <div class="hero-scroll" id="heroScroll">
+            <!-- 动态生成的推荐卡片 -->
+        </div>
+
+        <!-- 沉浸式单景点体验样板 -->
+        <section class="experience-feature-section" id="experienceFeatureSection">
+            <div class="experience-feature-header">
+                <div>
+                    <span class="experience-feature-kicker" data-i18n="experienceFeatureKicker">精选体验</span>
+                    <h2 data-i18n="experienceFeatureTitle">像真的走进去一样认识一个景点</h2>
+                </div>
+            </div>
+            <div class="experience-feature-list" id="experienceFeatureList"></div>
+        </section>
+
+        <!-- HOT分类区域 -->
+        <div class="hot-section">
+            <div class="hot-header">
+                <span class="hot-title" data-i18n="hot">热门</span>
+                <span class="hot-subtitle" data-i18n="popularRanking">热门推荐</span>
+            </div>
+            <div class="hot-categories" id="hotCategories"></div>
+        </div>
+
+        <div class="tag-results-section" id="tagResultsSection" hidden>
+            <div class="tag-results-header">
+                <div>
+                    <span class="tag-results-kicker" data-i18n="popularRanking">热门推荐</span>
+                    <h3 id="tagResultsTitle" data-i18n="categoryRecommendation">分类推荐</h3>
+                </div>
+                <button class="tag-results-close" onclick="closeTagResults()" aria-label="关闭分类推荐">×</button>
+            </div>
+            <div class="discover-posts tag-results-list" id="tagResultsPosts"></div>
+            <div class="empty-state tag-results-empty" id="tagResultsEmpty" style="display:none">
+                <p data-i18n="categoryEmpty">这个分类还没有用户帖子</p>
+            </div>
+        </div>
+
+        <!-- 帖子列表区域 -->
+        <div class="posts-container" id="postsContainer">
+            <!-- 动态生成的帖子列表 -->
+        </div>
+    </div> 
+
+    <!-- =========================================
+         2. 底部悬浮导航栏
+         ========================================= -->
+    <div class="bottom-nav-wrapper" id="bottomNav">
+        <div class="bottom-nav">
+            <!-- 首页 - 点击回到顶部 -->
+            <div class="nav-icon active" onclick="scrollToTop()">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10.4 12 4l7.5 6.4v8.1a1.9 1.9 0 0 1-1.9 1.9H6.4a1.9 1.9 0 0 1-1.9-1.9Z"></path><path d="M9.4 20.4v-6h5.2v6"></path></svg>
+            </div>
+            <!-- 探索 -->
+            <div class="nav-icon" onclick="openDiscoverPage()">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.4"></circle><path d="m14.8 8.2-2 5-5 2 2-5Z"></path></svg>
+            </div>
+            <!-- 中间加号按钮 -->
+            <div class="nav-center-btn">+</div>
+            <!-- 消息 -->
+            <div class="nav-icon" onclick="showMessages()">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 5.4h13.6a2.2 2.2 0 0 1 2.2 2.2v7.8a2.2 2.2 0 0 1-2.2 2.2H9l-4.8 3v-3.2A2.2 2.2 0 0 1 3 15.4V7.6a2.2 2.2 0 0 1 2.2-2.2Z"></path></svg>
+                <span class="nav-badge" id="messageBadge" style="display:none">0</span>
+            </div>
+            <!-- 我的 -->
+            <div class="nav-icon" onclick="handleMyClick()">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20.2a6.5 6.5 0 0 1 13 0"></path></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         3. 详情页区域 (初始隐藏在右侧)
+         ========================================= -->
+    <div class="detail-page" id="detailPage">
+        <div class="detail-scroll" id="detailScroll">
+            <!-- 详情页顶部按钮 -->
+            <div class="detail-header">
+                <button class="circle-btn" type="button" onclick="closeDetailPage()" aria-label="返回">
+                    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </button>
+                <button class="circle-btn yellow" type="button" onclick="navigatePostLocation()" aria-label="导航到景点">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </button>
+            </div>
+
+            <!-- 照片展示区域 -->
+            <div class="detail-image-wrapper">
+                <img id="detailImage" src="" alt="Post Image" class="detail-image">
+                <div class="play-btn-wrapper">
+                    <div class="play-btn" onclick="playPostAudio()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#e6b85c"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部白色详情卡片 -->
+            <div class="detail-bottom-sheet">
+                <div class="location-tag">📍 Weihai, Shandong</div>
+                <h2 class="detail-title">Luxiu: Shandong's Intangible Cultural Heritage Craft~</h2>
+                <div class="author-section">
+                    <div class="author-info">
+                        <div class="author-left">
+                            <div id="authorAvatar" class="author-avatar"></div>
+                            <div class="author-meta">
+                                <span class="author-name">W. John</span>
+                            <span class="publish-date">发布于 2023-04-02</span>
+                            </div>
+                        </div>
+                        <button class="follow-btn" id="followBtn" onclick="toggleFollow()" data-i18n="follow">关注</button>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label" data-i18n="duration">体验时长</div>
+                            <div class="stat-value">3</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label" data-i18n="peopleCount">参与人数</div>
+                            <div class="stat-value">12</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="detail-content" id="detailContent"></p>
+                <div class="guide-section" id="guideSection"></div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <div class="action-icons">
+                <div class="action-item views">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 14.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                    <span id="detailViews">0</span>
+                </div>
+                <div class="action-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                    <span id="detailLikes">0</span>
+                </div>
+                <div class="action-item red">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span id="detailComments">0</span>
+                </div>
+            </div>
+            <button class="bookmark-btn" id="detailBookmark" onclick="toggleBookmark()">
+                <svg viewBox="0 0 24 24" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span id="detailBookmarkText" data-i18n="bookmark">收藏</span>
+            </button>
+        </div>
+
+        <div class="guide-detail-panel" id="guideDetailPanel">
+            <div class="guide-detail-header">
+                <button class="guide-detail-back" id="guideDetailBack" aria-label="返回导览列表">←</button>
+                <div>
+                    <span id="guideDetailIndex" data-i18n="guidePoint">导览点</span>
+                    <h3 id="guideDetailTitle" data-i18n="attractionGuide">景点导览</h3>
+                </div>
+            </div>
+            <div class="guide-detail-images" id="guideDetailImages"></div>
+            <div class="guide-detail-content">
+                <div class="guide-live-status" id="guideDetailLive"></div>
+                <p id="guideDetailText"></p>
+                <div class="guide-detail-actions">
+                    <button class="guide-detail-step" id="guideDetailPrev" type="button">上一站</button>
+                    <button class="guide-detail-step" id="guideDetailNext" type="button">下一站</button>
+                    <button class="guide-detail-play" id="guideDetailPlay" data-i18n="playAudio">播放语音</button>
+                    <button class="guide-detail-nav" id="guideDetailNav" data-i18n="navigateThere">导航过去</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         3.5 沉浸式景点体验页
+         ========================================= -->
+    <div class="experience-page" id="experiencePage">
+        <div class="experience-scroll" id="experienceScroll">
+            <div class="experience-hero" id="experienceHero">
+                <div class="experience-header">
+                    <button class="circle-btn" type="button" onclick="closeExperiencePage()" aria-label="返回">
+                        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </button>
+                    <div class="experience-header-actions">
+                        <button class="language-toggle experience-language-toggle" id="experienceLanguageToggle" type="button" onclick="setLanguage(currentLanguage === 'en' ? 'zh' : 'en')">EN</button>
+                        <button class="circle-btn yellow" type="button" onclick="scrollExperienceToVr()" aria-label="进入VR">
+                            <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"></path><path d="M8 12h.01"></path><path d="M16 12h.01"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="experience-hero-copy">
+                    <span id="experienceHeroKicker"></span>
+                    <h1 id="experienceTitle"></h1>
+                    <p id="experienceSubtitle"></p>
+                    <div class="experience-hero-actions">
+                        <button type="button" class="experience-start-btn" onclick="scrollExperienceToStory()" data-i18n="enterExperience">进入体验</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-sheet">
+                <div class="experience-info-strip" id="experienceInfoStrip"></div>
+                <section class="experience-intro" id="experienceIntro"></section>
+                <section class="experience-story" id="experienceStory"></section>
+                <section class="experience-vr-section" id="experienceVrSection">
+                    <div class="experience-section-heading">
+                        <span data-i18n="immersiveExperience">沉浸体验</span>
+                        <h2 data-i18n="vrSectionTitle">先试全景预览，再进入 360 视角</h2>
+                    </div>
+                    <div class="vr-tabs">
+                        <button type="button" class="active" data-vr-tab="lite" onclick="switchExperienceVr('lite')" data-i18n="vrLiteTab">第一档 全景预览</button>
+                        <button type="button" data-vr-tab="sphere" onclick="switchExperienceVr('sphere')" data-i18n="vrSphereTab">第二档 360 视角</button>
+                    </div>
+                    <div class="vr-panel active" id="vrLitePanel">
+                        <div class="lite-vr-stage" id="liteVrStage">
+                            <img id="liteVrImage" alt="东交民巷沉浸视角">
+                            <div class="lite-vr-hotspots" id="liteVrHotspots"></div>
+                        </div>
+                        <div class="vr-caption" id="liteVrCaption"></div>
+                    </div>
+                    <div class="vr-panel" id="vrSpherePanel">
+                        <div class="sphere-vr-stage" id="sphereVrStage">
+                            <canvas id="sphereVrCanvas"></canvas>
+                            <div class="sphere-vr-loading" id="sphereVrLoading">正在进入 360 全景...</div>
+                        </div>
+                        <div class="vr-caption" id="sphereVrCaption"></div>
+                    </div>
+                </section>
+                <section class="experience-practical" id="experiencePractical"></section>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         4. 登录/注册 弹出面板 (初始隐藏在底部)
+         ========================================= -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-header">
+            <!-- 关闭按钮 -->
+            <div class="circle-btn" onclick="closeAuthModal()">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+        </div>
+        
+        <div class="auth-content">
+            <!-- 头像选择区域 -->
+            <div class="auth-logo" id="avatarPreview">
+                <img src="https://picsum.photos/100/100?random=1" alt="User Avatar" class="default-avatar">
+            </div>
+            
+            <!-- 头像选择按钮 -->
+            <button class="avatar-change-btn" onclick="openAvatarSelector()">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+                <span data-i18n="changeAvatar">更换头像</span>
+            </button>
+            
+            <h2 id="authTitle">欢迎回来</h2>
+            
+            <form id="authForm" class="auth-form" onsubmit="handleAuth(event)">
+                <input type="text" id="usernameInput" placeholder="用户名或邮箱" data-i18n-placeholder="usernameOrEmail" required>
+                <input type="password" id="passwordInput" placeholder="密码" data-i18n-placeholder="password" required>
+                <button type="submit" class="primary-btn" id="submitBtn">登录</button>
+            </form>
+            
+            <div class="auth-switch">
+                <span id="switchText">还没有账号？</span>
+                <a href="#" onclick="toggleAuthMode()">注册</a>
+            </div>
+        </div>
+        
+        <!-- 头像裁剪弹窗 -->
+        <div class="crop-modal" id="cropModal">
+            <div class="crop-modal-header">
+                <h3 data-i18n="cropAvatar">裁剪头像</h3>
+                <div class="circle-btn" onclick="closeCropModal()">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+            </div>
+            <div class="crop-modal-content">
+                <div class="crop-container" id="cropContainer">
+                    <canvas id="cropCanvas"></canvas>
+                    <div class="crop-overlay"></div>
+                    <div class="crop-frame" id="cropFrame"></div>
+                </div>
+                <div class="crop-controls">
+                    <div class="crop-actions">
+                        <button class="crop-btn cancel" onclick="closeCropModal()" data-i18n="cancel">取消</button>
+                        <button class="crop-btn confirm" onclick="confirmCrop()" data-i18n="confirm">确认</button>
+                    </div>
+                    <div class="crop-zoom">
+                        <button class="zoom-btn" onclick="zoomOut()">-</button>
+                        <span id="zoomLevel">100%</span>
+                        <button class="zoom-btn" onclick="zoomIn()">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- =========================================
+             4. 个人中心页面
+             ========================================= -->
+        <div class="profile-page" id="profilePage">
+            <!-- 顶部栏 -->
+            <div class="profile-header">
+                <div class="back-btn" onclick="goBack()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <h1 data-i18n="my">我的</h1>
+                <div class="placeholder"></div>
+            </div>
+            
+            <!-- 用户信息区域 -->
+            <div class="profile-info">
+                <div class="profile-avatar" id="profileAvatar">
+                    <img src="https://picsum.photos/100/100?random=1" alt="Avatar" class="default-avatar">
+                </div>
+                <div class="profile-name" id="profileName" data-i18n="username">用户名</div>
+                <div class="profile-stats">
+                    <div class="stat-item" onclick="showFollowingList()">
+                        <span class="stat-num" id="followCount">0</span>
+                        <span class="stat-label" data-i18n="follow">关注</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num" id="fanCount">0</span>
+                        <span class="stat-label" data-i18n="fans">粉丝</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num" id="likeCount">0</span>
+                        <span class="stat-label" data-i18n="gainedLikes">获赞</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 菜单列表 -->
+            <div class="menu-list">
+                <div class="menu-item" onclick="showFollowingList()">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.57 3-3.5S17.66 4 16 4s-3 1.57-3 3.5S14.34 11 16 11Z"></path><path d="M8 11c1.66 0 3-1.57 3-3.5S9.66 4 8 4 5 5.57 5 7.5 6.34 11 8 11Z"></path><path d="M2.5 20c.45-3.25 2.45-5 5.5-5s5.05 1.75 5.5 5"></path><path d="M13.5 15.5c.7-.33 1.53-.5 2.5-.5 3.05 0 5.05 1.75 5.5 5"></path></svg>
+                    </div>
+                    <span data-i18n="myFollowing">我的关注</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+                <div class="menu-item" onclick="showMyPosts()">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Z"></path><path d="M14 3v4h4"></path><path d="M9 12h6"></path><path d="M9 16h4"></path></svg>
+                    </div>
+                    <span data-i18n="myPosts">我的帖子</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+                <div class="menu-item" onclick="showMessages('profile')">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z"></path><path d="M8 9h8"></path><path d="M8 13h5"></path></svg>
+                    </div>
+                    <span data-i18n="myMessages">我的消息</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+                <div class="menu-item" onclick="showMyFavorites()">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10.2C5 6.9 6.9 5 9.25 5c1.35 0 2.45.65 2.75 1.35C12.3 5.65 13.4 5 14.75 5 17.1 5 19 6.9 19 9.8 19 15.65 12 20 12 20Z"></path></svg>
+                    </div>
+                    <span data-i18n="myFavorites">我的收藏</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+                <div class="menu-item" onclick="showMyGuideStamps()">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M7 4h10l1 7a5 5 0 0 1-4 4.9V19h4v2H6v-2h4v-3.1A5 5 0 0 1 6 11l1-7Z"></path><path d="M9.5 8h5"></path><path d="M10 12h4"></path></svg>
+                    </div>
+                    <span data-i18n="myStamps">我的印章</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+                <div class="menu-item" onclick="showSection('头像')">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M4.5 21c.7-4 3.25-6 7.5-6s6.8 2 7.5 6"></path></svg>
+                    </div>
+                    <span data-i18n="changeAvatar">更换头像</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+                <div class="menu-item" onclick="openChangePassword()">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M7 10V8a5 5 0 0 1 10 0v2"></path><path d="M5 10h14v11H5V10Z"></path><path d="M12 14v3"></path></svg>
+                    </div>
+                    <span data-i18n="changePassword">修改密码</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+                <div class="menu-item logout" onclick="logout()">
+                    <div class="menu-icon">
+                        <svg viewBox="0 0 24 24"><path d="M10 4H5v16h5"></path><path d="M14 8l4 4-4 4"></path><path d="M8 12h10"></path></svg>
+                    </div>
+                    <span data-i18n="logout">退出登录</span>
+                    <div class="menu-arrow">›</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 我的帖子页面 -->
+        <div class="my-posts-page" id="myPostsPage">
+            <div class="posts-header">
+                <div class="back-btn" onclick="backToProfile()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <h1 id="myPostsTitle" data-i18n="myPosts">我的帖子</h1>
+                <div class="placeholder"></div>
+            </div>
+            <div class="posts-container" id="myPostsContainer">
+                <!-- 帖子列表将通过JS动态生成 -->
+            </div>
+        </div>
+
+        <!-- 我的关注页面 -->
+        <div class="following-page" id="followingPage">
+            <div class="posts-header">
+                <div class="back-btn" onclick="backToProfile()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <h1 data-i18n="myFollowing">我的关注</h1>
+                <div class="placeholder"></div>
+            </div>
+            <div class="following-list" id="followingList">
+                <!-- 关注列表将通过JS动态生成 -->
+            </div>
+        </div>
+
+        <!-- 他人帖子页面 -->
+        <div class="user-posts-page" id="userPostsPage">
+            <div class="posts-header">
+                <div class="back-btn" onclick="backToFollowing()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <h1 id="userPostsTitle" data-i18n="userPosts">用户帖子</h1>
+                <div class="placeholder"></div>
+            </div>
+            <div class="posts-container" id="userPostsContainer">
+                <!-- 用户帖子列表将通过JS动态生成 -->
+            </div>
+        </div>
+
+        <!-- 消息页面 -->
+        <div class="messages-page" id="messagesPage">
+            <div class="posts-header">
+                <div class="back-btn" onclick="closeMessages()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <h1 data-i18n="messages">消息</h1>
+                <div class="placeholder"></div>
+            </div>
+            <div class="messages-list" id="messagesList">
+                <!-- 消息列表将通过JS动态生成 -->
+            </div>
+        </div>
+
+        <!-- 聊天页面 -->
+        <div class="chat-page" id="chatPage">
+            <div class="posts-header">
+                <div class="back-btn" onclick="backToMessages()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <h1 id="chatTitle" data-i18n="chat">聊天</h1>
+                <div class="placeholder"></div>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-wrapper">
+                <input type="text" id="chatInput" placeholder="输入消息..." data-i18n-placeholder="inputMessage" />
+                <button class="chat-send-btn" onclick="sendMessage()" data-i18n="send">发送</button>
+            </div>
+        </div>
+        
+    </div>
+    
+        <!-- 头像选择弹窗 -->
+        <div class="avatar-modal" id="avatarModal">
+            <div class="avatar-modal-wrapper">
+                <div class="avatar-modal-header">
+                    <h3 data-i18n="selectAvatar">选择头像</h3>
+                    <div class="circle-btn" onclick="closeAvatarSelector()">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </div>
+                </div>
+                <div class="avatar-modal-content">
+                    <!-- 预选头像列表 -->
+                    <div class="avatar-section">
+                        <h4 data-i18n="presetAvatar">预设头像</h4>
+                        <div class="avatar-grid" id="presetAvatars">
+                            <!-- JS 动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 自定义头像上传 -->
+                    <div class="avatar-section">
+                        <h4 data-i18n="uploadCustomAvatar">上传自定义头像</h4>
+                        <div class="upload-area" onclick="triggerFileInput()">
+                            <span class="upload-icon">📷</span>
+                            <p data-i18n="clickUpload">点击上传</p>
+                            <input type="file" id="avatarFile" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 修改密码弹窗 -->
+        <div class="change-pwd-modal" id="changePwdModal">
+            <div class="change-pwd-wrapper">
+                <div class="change-pwd-header">
+                    <h3 data-i18n="changePassword">修改密码</h3>
+                    <div class="circle-btn" onclick="closeChangePwd()">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </div>
+                </div>
+                <div class="change-pwd-content">
+                    <form id="changePwdForm" onsubmit="handleChangePassword(event)">
+                        <input type="password" id="oldPwd" placeholder="旧密码" data-i18n-placeholder="oldPassword" required>
+                        <input type="password" id="newPwd" placeholder="新密码" data-i18n-placeholder="newPassword" required>
+                        <input type="password" id="confirmPwd" placeholder="确认新密码" data-i18n-placeholder="confirmNewPassword" required>
+                        <button type="submit" class="primary-btn" data-i18n="confirmChange">确认修改</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+        <!-- =========================================
+             Discover 页面 - 附近的人发布的帖子
+             ========================================= -->
+        <div class="discover-page" id="discoverPage">
+            <div class="discover-header">
+                <div class="back-btn" onclick="backToHome()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <h1 data-i18n="discover">发现</h1>
+                <div class="discover-location" id="discoverLocation" onclick="showLocationPicker({ target: 'discover' })">📍 附近</div>
+            </div>
+            
+            <!-- 附近帖子列表 -->
+            <div class="discover-posts" id="discoverPosts">
+                <!-- JS 动态生成横版卡片 -->
+            </div>
+            
+            <!-- 空状态 -->
+            <div class="discover-empty" id="discoverEmpty" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="64" height="64">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <p data-i18n="nearbyNoPosts">附近暂无帖子</p>
+                <p class="hint" data-i18n="nearbyHint">尝试扩大搜索范围或发布新帖子</p>
+            </div>
+        </div>
+
+        <!-- =========================================
+             Smart Route 页面 - 非遗结构化推荐 demo
+             ========================================= -->
+        <div class="smart-route-page" id="smartRoutePage">
+            <div class="smart-route-header">
+                <div class="back-btn" onclick="closeSmartRoutePage()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+                </div>
+                <div>
+                    <span data-i18n="smartRouteKicker">智能路线</span>
+                    <h1 data-i18n="smartRoutePlanner">非遗文化路线生成器</h1>
+                </div>
+            </div>
+
+            <div class="smart-route-content">
+                <section class="route-generator-panel">
+                    <div class="smart-section-heading">
+                        <span data-i18n="routePreference">路线生成</span>
+                        <h2 data-i18n="routePreferenceTitle">快速生成文化路线</h2>
+                        <p data-i18n="routePreferenceDesc">选一个玩法和出行时间，先生成一条能直接使用的路线。</p>
+                    </div>
+
+                    <div class="smart-form-block smart-preset-panel">
+                        <label data-i18n="routeInspiration">路线灵感</label>
+                        <div class="smart-preset-grid" id="smartRoutePresets"></div>
+                    </div>
+
+                    <div class="smart-form-row smart-quick-settings">
+                        <div class="smart-form-block">
+                            <label data-i18n="availableTime">可用时间</label>
+                            <select id="smartHours" onchange="markSmartRouteCustom()">
+                                <option value="2">2 小时</option>
+                                <option value="4" selected>半日 4 小时</option>
+                                <option value="8">一日 8 小时</option>
+                            </select>
+                        </div>
+                        <div class="smart-form-block">
+                            <label data-i18n="startCity">出发城市</label>
+                            <select id="smartCity" onchange="handleSmartCityChange()">
+                                <option value="北京" selected>北京</option>
+                                <option value="广州市">广州</option>
+                                <option value="上海市">上海</option>
+                                <option value="深圳市">深圳</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="smart-route-expectation" id="smartRouteExpectation"></div>
+
+                    <div class="smart-action-bar">
+                        <button class="smart-generate-btn smart-generate-primary" type="button" onclick="generateSmartRoute()" data-i18n="generateRoute">立即生成路线</button>
+                        <button class="smart-more-settings" type="button" onclick="toggleSmartAdvancedSettings()" data-i18n="moreRouteSettings">更多设置</button>
+                        <button class="smart-secondary-link" type="button" onclick="toggleHeritageData()" data-i18n="viewHeritageData">查看推荐依据</button>
+                    </div>
+
+                    <div class="smart-advanced-settings" id="smartAdvancedSettings" hidden>
+                        <div class="smart-form-block smart-preference-panel">
+                            <label data-i18n="preferenceSettings">偏好选择</label>
+                            <span class="smart-field-hint" data-i18n="preferenceHint">需要更精确时再调整主题、体验方式和路线氛围</span>
+                            <div class="smart-chip-grid smart-chip-grid-unified" id="smartUnifiedChips"></div>
+                        </div>
+
+                        <div class="smart-form-row">
+                            <div class="smart-form-block">
+                                <label data-i18n="travelPace">游览节奏</label>
+                                <select id="smartPace" onchange="markSmartRouteCustom()">
+                                    <option value="轻松" selected>轻松慢游</option>
+                                    <option value="深度">深度讲解</option>
+                                    <option value="少走路">少走路</option>
+                                </select>
+                            </div>
+                            <div class="smart-form-block">
+                                <label data-i18n="travelCompanion">同行人群</label>
+                                <select id="smartCompanion" onchange="markSmartRouteCustom()">
+                                    <option value="国际友好" selected>外籍游客</option>
+                                    <option value="亲子">亲子家庭</option>
+                                    <option value="适合拍照">拍照打卡</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="smart-form-block">
+                            <label data-i18n="routeFocus">路线主线</label>
+                            <select id="smartRouteFocus" onchange="markSmartRouteCustom()">
+                                <option value="auto" selected data-i18n="routeFocusAuto">自动判断</option>
+                                <option value="heritage" data-i18n="routeFocusHeritage">非遗为主，周边景点辅助</option>
+                                <option value="attraction" data-i18n="routeFocusAttraction">景点为主，周边非遗辅助</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="smart-route-result" id="smartRouteResult" hidden></section>
+
+                <section class="heritage-data-panel" id="heritageDataPanel" hidden>
+                    <div class="smart-section-heading">
+                        <span data-i18n="heritageDataModel">推荐依据</span>
+                        <h2 data-i18n="heritageDataTitle">系统参考的非遗资料库</h2>
+                        <p data-i18n="heritageDataDesc">这里展示系统用于生成路线的文化资料，需要时再打开查看。</p>
+                    </div>
+                    <div class="heritage-preview-list" id="heritagePreviewList"></div>
+                </section>
+
+                <section class="smart-route-detail" id="smartRouteDetail" hidden></section>
+            </div>
+        </div>
+    
+            <!-- =========================================
+         5. 位置选择器弹窗（底部弹出）
+         ========================================= -->
+        <div class="location-picker-overlay" id="locationPickerOverlay" onclick="closeLocationPicker()"></div>
+        <div class="location-picker" id="locationPicker">
+            <div class="location-picker-header">
+                <h2 data-i18n="selectLocation">选择位置</h2>
+                <div class="close-btn" onclick="closeLocationPicker()">
+                    ✕
+                </div>
+            </div>
+            <!-- 搜索结果 -->
+            <div class="search-results" id="searchResults" style="display: none;">
+                <!-- 动态生成搜索结果 -->
+            </div>
+            
+            <!-- 选择位置 -->
+            <div class="location-section">
+                <div class="section-title">
+                    <span class="section-icon">📍</span>
+                    <span data-i18n="selectLocation">选择位置</span>
+                </div>
+                <div class="location-item select-location" onclick="showMapSelector()">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#ff6b6b"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <div class="location-info">
+                        <p class="location-name" data-i18n="selectLocation">选择位置</p>
+                        <p class="location-desc" data-i18n="selectLocationDesc">点击在地图上选择位置或获取当前位置</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 热门城市 -->
+            <div class="location-section">
+                <div class="section-title">
+                    <span class="section-icon">🔥</span>
+                    <span data-i18n="hotCities">热门城市</span>
+                </div>
+                <div class="hot-cities">
+                    <div class="city-tag" data-name="北京" data-lat="39.9042" data-lng="116.4074">北京</div>
+                    <div class="city-tag" data-name="上海" data-lat="31.2304" data-lng="121.4737">上海</div>
+                    <div class="city-tag" data-name="深圳" data-lat="22.5431" data-lng="114.0579">深圳</div>
+                    <div class="city-tag" data-name="广州" data-lat="23.1291" data-lng="113.2644">广州</div>
+                    <div class="city-tag" data-name="杭州" data-lat="30.2741" data-lng="120.1552">杭州</div>
+                    <div class="city-tag" data-name="成都" data-lat="30.5728" data-lng="104.0668">成都</div>
+                    <div class="city-tag" data-name="重庆" data-lat="29.4316" data-lng="106.9123">重庆</div>
+                    <div class="city-tag" data-name="武汉" data-lat="30.5928" data-lng="114.3055">武汉</div>
+                    <div class="city-tag" data-name="南京" data-lat="32.0603" data-lng="118.7969">南京</div>
+                    <div class="city-tag" data-name="西安" data-lat="34.2619" data-lng="108.9463">西安</div>
+                    <div class="city-tag" data-name="天津" data-lat="39.1422" data-lng="117.2074">天津</div>
+                    <div class="city-tag" data-name="苏州" data-lat="31.2304" data-lng="120.6196">苏州</div>
+                </div>
+            </div>
+            
+            <!-- 最近使用 -->
+            <div class="location-section">
+                <div class="section-title">
+                    <span class="section-icon">🕐</span>
+                    <span data-i18n="recent">最近使用</span>
+                </div>
+                <div class="recent-locations" id="recentLocations">
+                    <p class="empty-text" data-i18n="noRecentLocations">暂无最近使用的位置</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 地图选点器 -->
+        <div class="map-selector-overlay" id="mapSelectorOverlay" onclick="closeMapSelector()"></div>
+        <div class="map-selector" id="mapSelector">
+            <div class="map-selector-header">
+                <div class="back-btn" onclick="closeMapSelector()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </div>
+                <h2 data-i18n="selectLocation">选择位置</h2>
+                <div class="confirm-btn" onclick="confirmMapSelection()" data-i18n="confirm">确认</div>
+            </div>
+            
+            <!-- 搜索框 -->
+            <div class="map-search-bar">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="#999"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.77l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" id="mapSearchInput" placeholder="搜索城市、区域或地点..." data-i18n-placeholder="searchPlace" onkeyup="debounceMapSearch()">
+                <div class="search-cancel" id="mapSearchCancel" onclick="clearMapSearch()" style="display: none;">✕</div>
+            </div>
+            
+            <!-- 搜索结果 -->
+            <div class="map-search-results" id="mapSearchResults"></div>
+            
+            <div class="map-toolbar">
+                <div class="toolbar-btn" onclick="getCurrentLocationOnMap()">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#ff6b6b"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="locate">定位</span>
+                </div>
+                <div class="toolbar-btn" onclick="zoomInMap()">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#666"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    <span data-i18n="zoomIn">放大</span>
+                </div>
+                <div class="toolbar-btn" onclick="zoomOutMap()">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#666"><path d="M19 13H5v-2h14v2z"/></svg>
+                    <span data-i18n="zoomOut">缩小</span>
+                </div>
+            </div>
+            <div class="map-container" id="mapContainer"></div>
+            <div class="map-center-marker">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="#ff6b6b"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div class="map-address" id="mapAddress" data-i18n="mapHint">点击地图或移动选择位置</div>
+        </div>
+    
+            <!-- =========================================
+         6. 发布页面
+         ========================================= -->
+        <div class="publish-page" id="publishPage">
+        <!-- 顶部栏 -->
+        <div class="publish-header">
+            <div class="circle-btn" onclick="closePublishPage()">
+                <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </div>
+            <h1 data-i18n="publish">发布</h1>
+            <button class="publish-submit-btn" id="publishBtn" onclick="handlePublish()" data-i18n="publish">发布</button>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="publish-content">
+            <div class="publish-feedback" id="publishFeedback" hidden></div>
+            <!-- 照片选择区域 -->
+            <div class="photo-section">
+                <h3 class="section-title" data-i18n="addPhotos">添加照片</h3>
+                <p class="publish-helper" data-i18n="photoOptionalHint">图片可选，先写一条短笔记也可以。</p>
+                <div class="photo-grid" id="photoGrid">
+                    <!-- 添加照片按钮 -->
+                    <div class="photo-add-btn" onclick="triggerPhotoUpload()">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path></svg>
+                    </div>
+                </div>
+                <input type="file" id="photoFile" accept="image/*" multiple onchange="handlePhotoUpload(event)" hidden>
+            </div>
+
+            <!-- 标题输入 -->
+            <div class="input-section">
+                <h3 class="section-title" data-i18n="title">标题</h3>
+                <input type="text" id="publishTitle" placeholder="给这篇笔记起个标题" data-i18n-placeholder="titlePlaceholder">
+            </div>
+
+            <!-- 正文输入 -->
+            <div class="input-section">
+                <h3 class="section-title" data-i18n="content">正文</h3>
+                <textarea id="publishContent" placeholder="添加正文，分享路线、体验、避坑建议..." data-i18n-placeholder="contentPlaceholder" rows="7"></textarea>
+            </div>
+
+            <!-- 定位区域 -->
+            <div class="location-section">
+                <div class="location-row">
+                    <div class="location-icon">📍</div>
+                    <div class="location-info">
+                        <span class="location-label" data-i18n="location">定位</span>
+                        <span class="location-value" id="locationValue" data-i18n="noLocationSelected">未选择位置</span>
+                    </div>
+                    <button class="location-btn" id="locationBtn" onclick="showLocationPicker({ target: 'publish' })">
+                        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 隐藏推荐标签：只用于首页分类推荐，不会在帖子卡片或详情页展示 -->
+            <div class="input-section">
+                <h3 class="section-title" data-i18n="categoryTags">分类标签</h3>
+                <div class="publish-tag-grid" id="publishTagGrid"></div>
+            </div>
+
+            <!-- 额外信息 -->
+            <div class="extra-info">
+                <div class="info-row">
+                    <span class="info-label" data-i18n="duration">体验时长</span>
+                    <input type="number" id="durationInput" placeholder="天数" data-i18n-placeholder="daysPlaceholder" min="1" max="30">
+                    <span class="info-unit" data-i18n="dayUnit">天</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" data-i18n="peopleCount">参与人数</span>
+                    <input type="number" id="peopleInput" placeholder="人数" data-i18n-placeholder="peoplePlaceholder" min="1" max="100">
+                    <span class="info-unit" data-i18n="peopleUnit">人</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 引入拆分出去的 JS 文件 -->
+<script src="js/main.js?v=route-lightweight-1"></script>
+
+<!-- Leaflet地图库 -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+</body>
+</html>

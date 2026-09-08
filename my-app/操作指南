@@ -1,0 +1,25 @@
+本地启动：
+
+cd /Users/william/Desktop/guo_chuang/my-app
+/Users/william/Desktop/guo_chuang/.venv/bin/python -m uvicorn main:app --host 127.0.0.1 --port 8000
+
+访问地址：
+
+ngrok 外网访问：
+
+另开一个终端
+ngrok http 8000
+
+数据库位置：
+
+/Users/william/Desktop/guo_chuang/my-app/data/runtime/users.db
+
+重置数据库：
+
+cd /Users/william/Desktop/guo_chuang/my-app
+../.venv/bin/python scripts/data/reset_database.py
+
+重导内置帖子：
+
+cd /Users/william/Desktop/guo_chuang/my-app
+../.venv/bin/python scripts/data/insert_posts.py

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 780" role="img" aria-label="颐和园无文字导览底图">
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a8d7e8"/>
+      <stop offset=".55" stop-color="#7fc1da"/>
+      <stop offset="1" stop-color="#65aeca"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f9b5d"/>
+      <stop offset="1" stop-color="#a7bd78"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6edcf"/>
+      <stop offset="1" stop-color="#ead8a9"/>
+    </linearGradient>
+    <pattern id="treeDots" width="38" height="38" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="12" r="5" fill="#5f8c50" opacity=".65"/>
+      <circle cx="27" cy="24" r="4" fill="#4f7b43" opacity=".55"/>
+    </pattern>
+    <g id="hall">
+      <rect x="-34" y="-18" width="68" height="36" rx="4" fill="#b95642"/>
+      <path d="M-42 -18h84l-12 -14h-60z" fill="#d9af45"/>
+      <rect x="-26" y="-8" width="52" height="18" fill="#f2d999" opacity=".75"/>
+    </g>
+    <g id="pavilion">
+      <rect x="-20" y="-14" width="40" height="28" rx="4" fill="#bd5c48"/>
+      <path d="M-28 -14h56l-10 -12h-36z" fill="#d7aa3c"/>
+    </g>
+  </defs>
+  <rect width="1400" height="780" fill="#f7f0da"/>
+  <rect x="24" y="24" width="1352" height="732" rx="18" fill="url(#paper)" stroke="#d0b36a" stroke-width="4"/>
+  <path d="M70 474c132-96 273-118 420-65 72 26 134 69 201 92 137 47 285-12 432 25 82 21 151 75 184 148H70z" fill="#ead9a9"/>
+  <path d="M64 374c76-79 182-128 307-119 120 9 183 88 286 130 110 45 199 5 306 2 153-5 284 69 347 185v151H64z" fill="url(#water)"/>
+  <path d="M68 375c104 39 191 70 274 119 107 64 194 122 322 124 162 2 306-76 454-46" fill="none" stroke="#5aa3bd" stroke-width="8" opacity=".35"/>
+  <path d="M78 95c144-46 286-66 446-44 144 20 250 64 331 140-52 79-166 130-318 141-167 12-318-17-466-90z" fill="url(#hill)" opacity=".95"/>
+  <path d="M88 110c131 23 253 35 370 24 119-11 222 3 319 55-65 44-159 67-281 70-151 4-278-20-409-80z" fill="url(#treeDots)" opacity=".9"/>
+  <path d="M94 310c157 18 313 24 463 10 126-12 251-5 382 17" fill="none" stroke="#8b6a35" stroke-width="17" stroke-linecap="round" opacity=".55"/>
+  <path d="M117 315c147 13 287 16 421 4 118-11 240-5 366 14" fill="none" stroke="#d5b76a" stroke-width="9" stroke-linecap="round" opacity=".95"/>
+  <g opacity=".92">
+    <use href="#hall" x="979" y="249"/>
+    <use href="#hall" x="890" y="262"/>
+    <use href="#hall" x="790" y="270"/>
+    <use href="#hall" x="686" y="284"/>
+    <use href="#hall" x="584" y="299"/>
+    <use href="#hall" x="468" y="310"/>
+    <use href="#hall" x="352" y="318"/>
+    <use href="#hall" x="235" y="326"/>
+  </g>
+  <g opacity=".96">
+    <use href="#hall" x="930" y="345"/>
+    <use href="#hall" x="858" y="352"/>
+    <use href="#hall" x="790" y="359"/>
+    <use href="#hall" x="718" y="367"/>
+    <use href="#hall" x="620" y="381"/>
+    <use href="#hall" x="508" y="401"/>
+  </g>
+  <g opacity=".94">
+    <use href="#pavilion" x="560" y="164"/>
+    <use href="#pavilion" x="557" y="219"/>
+    <use href="#pavilion" x="552" y="270"/>
+    <use href="#hall" x="552" y="328"/>
+    <use href="#hall" x="552" y="385"/>
+  </g>
+  <g opacity=".92">
+    <use href="#hall" x="1018" y="330"/>
+    <use href="#hall" x="1078" y="351"/>
+    <use href="#hall" x="1140" y="376"/>
+    <use href="#hall" x="1190" y="414"/>
+  </g>
+  <g opacity=".92">
+    <use href="#pavilion" x="360" y="156"/>
+    <use href="#pavilion" x="306" y="194"/>
+    <use href="#pavilion" x="252" y="232"/>
+    <use href="#pavilion" x="200" y="268"/>
+  </g>
+  <path d="M1000 565c95 13 166 58 210 137" fill="none" stroke="#d9c17a" stroke-width="20" stroke-linecap="round"/>
+  <path d="M1010 565c84 17 148 58 191 129" fill="none" stroke="#fff0c8" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="900" cy="612" rx="82" ry="42" fill="#88c4d8" opacity=".72"/>
+  <ellipse cx="902" cy="612" rx="49" ry="24" fill="#ead9a9" opacity=".95"/>
+  <path d="M246 380c-30 43-48 86-54 129 26 12 76 13 122 3 61-13 103-43 125-87-57-16-120-31-193-45z" fill="#e6d091" opacity=".85"/>
+  <path d="M118 112c14 38 26 74 35 110" stroke="#b99b55" stroke-width="14" stroke-linecap="round"/>
+  <path d="M118 112c14 38 26 74 35 110" stroke="#f3df9a" stroke-width="6" stroke-linecap="round"/>
+  <g fill="url(#treeDots)" opacity=".6">
+    <path d="M1100 100c90 20 161 67 206 137-69-2-132-14-192-38-48-19-82-50-102-93z"/>
+    <path d="M122 556c97-15 182 5 255 60-88 28-186 37-295 26z"/>
+    <path d="M1150 493c64 22 115 61 153 116-68 5-132-8-192-39z"/>
+  </g>
+</svg>

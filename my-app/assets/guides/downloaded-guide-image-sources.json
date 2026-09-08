@@ -1,0 +1,556 @@
+{
+  "successes": [
+    {
+      "dict": "TEMPLE_OF_HEAVEN_IMAGES",
+      "key": "three_echo_stones",
+      "asset": "/assets/guides/beijing/temple-of-heaven/three-echo-stones.jpg",
+      "query": "Three Echo Stones Temple of Heaven",
+      "source": "https://www.flickr.com/photos/38331851@N00/5187580775",
+      "title": "2010-11-18-IMG_0622",
+      "mime": "image/jpeg",
+      "bytes": 130671
+    },
+    {
+      "dict": "TEMPLE_OF_HEAVEN_IMAGES",
+      "key": "ancient_cypress_grove",
+      "asset": "/assets/guides/beijing/temple-of-heaven/ancient-cypress-grove.jpg",
+      "query": "天坛 古柏林",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=159053947",
+      "title": "水目山宝华寺-大雄宝殿 2025-02-02 01",
+      "mime": "image/jpeg",
+      "bytes": 10205079
+    },
+    {
+      "dict": "BADALING_IMAGES",
+      "key": "great_wall_museum",
+      "asset": "/assets/guides/beijing/badaling-great-wall/great-wall-museum.jpg",
+      "query": "Great Wall Museum Badaling",
+      "source": "https://commons.wikimedia.org/wiki/File%3AGary_Lee_Todd_at_Great_Wall%2C_Badaling%2C_1991.jpg",
+      "title": "File:Gary Lee Todd at Great Wall, Badaling, 1991.jpg",
+      "mime": "image/jpeg",
+      "bytes": 366546
+    },
+    {
+      "dict": "OLD_SUMMER_PALACE_IMAGES",
+      "key": "yuanyingguan",
+      "asset": "/assets/guides/beijing/old-summer-palace/yuanyingguan.jpg",
+      "query": "Old Summer Palace Yuanyingguan ruins",
+      "source": "https://commons.wikimedia.org/wiki/File%3ARuins_of_Old_Summer_Palace_%28Yuanmingyuan%29_-_2019_-_13.jpg",
+      "title": "File:Ruins of Old Summer Palace (Yuanmingyuan) - 2019 - 13.jpg",
+      "mime": "image/jpeg",
+      "bytes": 610021
+    },
+    {
+      "dict": "OLD_SUMMER_PALACE_IMAGES",
+      "key": "fangwaiguan",
+      "asset": "/assets/guides/beijing/old-summer-palace/fangwaiguan.jpg",
+      "query": "Old Summer Palace Fangwaiguan ruins",
+      "source": "https://commons.wikimedia.org/wiki/File%3ARuins_of_Old_Summer_Palace_%28Yuanmingyuan%29_-_2019_-_16.jpg",
+      "title": "File:Ruins of Old Summer Palace (Yuanmingyuan) - 2019 - 16.jpg",
+      "mime": "image/jpeg",
+      "bytes": 414995
+    },
+    {
+      "dict": "OLD_SUMMER_PALACE_IMAGES",
+      "key": "huanghuazhen",
+      "asset": "/assets/guides/beijing/old-summer-palace/huanghuazhen.jpg",
+      "query": "Old Summer Palace Huanghuazhen maze",
+      "source": "https://commons.wikimedia.org/wiki/File%3AWanhuazhen.jpg",
+      "title": "File:Wanhuazhen.jpg",
+      "mime": "image/jpeg",
+      "bytes": 1035048
+    },
+    {
+      "dict": "OLD_SUMMER_PALACE_IMAGES",
+      "key": "exhibition_hall",
+      "asset": "/assets/guides/beijing/old-summer-palace/exhibition-hall.jpg",
+      "query": "Old Summer Palace exhibition hall",
+      "source": "https://www.flickr.com/photos/60168589@N00/481764986",
+      "title": "KUMU - Art Museum",
+      "mime": "image/jpeg",
+      "bytes": 213607
+    },
+    {
+      "dict": "GUANGZHOU_TOWER_IMAGES",
+      "key": "ferris_wheel",
+      "asset": "/assets/guides/guangzhou/canton-tower/ferris-wheel.jpg",
+      "query": "广州塔 摩天轮",
+      "source": "https://www.flickr.com/photos/8736439@N06/6395446423",
+      "title": "广州塔摩天轮下的广州城",
+      "mime": "image/jpeg",
+      "bytes": 189677
+    },
+    {
+      "dict": "BAIYUN_MOUNTAIN_IMAGES",
+      "key": "yuntai_garden",
+      "asset": "/assets/guides/guangzhou/baiyun-mountain/yuntai-garden.jpg",
+      "query": "Yuntai Garden Baiyun Mountain Guangzhou",
+      "source": "https://commons.wikimedia.org/wiki/File%3ALake_at_to_the_NORTHERN_PART_OF_Yuntai_Garden.jpg",
+      "title": "File:Lake at to the NORTHERN PART OF Yuntai Garden.jpg",
+      "mime": "image/jpeg",
+      "bytes": 359169
+    },
+    {
+      "dict": "BAIYUN_MOUNTAIN_IMAGES",
+      "key": "nengren_temple",
+      "asset": "/assets/guides/guangzhou/baiyun-mountain/nengren-temple.jpg",
+      "query": "Nengren Temple Baiyun Mountain Guangzhou",
+      "source": "https://commons.wikimedia.org/wiki/File%3A%E5%BB%A3%E5%B7%9E%E8%83%BD%E4%BB%81%E5%AF%BA2009_2.jpg",
+      "title": "File:廣州能仁寺2009 2.jpg",
+      "mime": "image/jpeg",
+      "bytes": 931337
+    },
+    {
+      "dict": "CHEN_CLAN_ACADEMY_IMAGES",
+      "key": "wood_carving",
+      "asset": "/assets/guides/guangzhou/chen-clan-academy/wood-carving.jpg",
+      "query": "Chen Clan Ancestral Hall wood carving",
+      "source": "https://commons.wikimedia.org/wiki/File%3AWood_Carvings_1-Chen_Clan_Academy.jpg",
+      "title": "File:Wood Carvings 1-Chen Clan Academy.jpg",
+      "mime": "image/jpeg",
+      "bytes": 133051
+    },
+    {
+      "dict": "CHEN_CLAN_ACADEMY_IMAGES",
+      "key": "brick_carving",
+      "asset": "/assets/guides/guangzhou/chen-clan-academy/brick-carving.jpg",
+      "query": "陈家祠 砖雕",
+      "source": "https://commons.wikimedia.org/wiki/File%3A%E9%99%88%E5%AE%B6%E7%A5%A0%EF%BC%8C%E7%A0%96%E9%9B%95%E5%A2%99%E9%A5%B0_-_panoramio.jpg",
+      "title": "File:陈家祠，砖雕墙饰 - panoramio.jpg",
+      "mime": "image/jpeg",
+      "bytes": 1270601
+    },
+    {
+      "dict": "CHEN_CLAN_ACADEMY_IMAGES",
+      "key": "rear_gallery",
+      "asset": "/assets/guides/guangzhou/chen-clan-academy/rear-gallery.jpg",
+      "query": "陈家祠 展厅",
+      "source": "https://commons.wikimedia.org/wiki/File%3A%E9%99%88%E5%AE%B6%E7%A5%A0%EF%BC%8C%E5%B1%95%E5%8E%85%E4%B8%80%E8%A7%92_-_panoramio.jpg",
+      "title": "File:陈家祠，展厅一角 - panoramio.jpg",
+      "mime": "image/jpeg",
+      "bytes": 897556
+    },
+    {
+      "dict": "YUEXIU_PARK_IMAGES",
+      "key": "ming_city_wall",
+      "asset": "/assets/guides/guangzhou/yuexiu-park/ming-city-wall.jpg",
+      "query": "Yuexiu Park Ming city wall Guangzhou",
+      "source": "https://www.flickr.com/photos/40243520@N02/32965182762",
+      "title": "Old Guangzhou City Wall",
+      "mime": "image/jpeg",
+      "bytes": 406804
+    },
+    {
+      "dict": "SHAMIAN_ISLAND_IMAGES",
+      "key": "former_consulates",
+      "asset": "/assets/guides/guangzhou/shamian-island/former-consulates.jpg",
+      "query": "Shamian former consulate buildings Guangzhou",
+      "source": "https://commons.wikimedia.org/wiki/File%3AFormer_US_Consulate_Building_Tablet.jpg",
+      "title": "File:Former US Consulate Building Tablet.jpg",
+      "mime": "image/jpeg",
+      "bytes": 2175026
+    },
+    {
+      "dict": "SHAMIAN_ISLAND_IMAGES",
+      "key": "tree_lanes",
+      "asset": "/assets/guides/guangzhou/shamian-island/tree-lanes.jpg",
+      "query": "Shamian Island tree lined street Guangzhou",
+      "source": "https://www.flickr.com/photos/21228941@N00/69901423",
+      "title": "20051117-06 banyan",
+      "mime": "image/jpeg",
+      "bytes": 88084
+    },
+    {
+      "dict": "SHANGHAI_BUND_IMAGES",
+      "key": "bund_origin",
+      "asset": "/assets/guides/shanghai/bund/bund-origin.jpg",
+      "query": "外滩源 上海",
+      "source": "https://www.flickr.com/photos/69016389@N03/8544308373",
+      "title": "洛克外滩夜色",
+      "mime": "image/jpeg",
+      "bytes": 167862
+    },
+    {
+      "dict": "SHANGHAI_BUND_IMAGES",
+      "key": "nanjing_road_entry",
+      "asset": "/assets/guides/shanghai/bund/nanjing-road-entry.jpg",
+      "query": "Nanjing Road entrance Bund Shanghai",
+      "source": "https://www.flickr.com/photos/90955804@N04/48528383516",
+      "title": "2019 - Shanghai - Grand Central Hotel",
+      "mime": "image/jpeg",
+      "bytes": 407870
+    },
+    {
+      "dict": "YU_GARDEN_IMAGES",
+      "key": "sansui_hall",
+      "asset": "/assets/guides/shanghai/yu-garden/sansui-hall.jpg",
+      "query": "Sansui Hall Yu Garden Shanghai",
+      "source": "https://commons.wikimedia.org/wiki/File%3AYu_Garden_Shanghai_November_2017_005.jpg",
+      "title": "File:Yu Garden Shanghai November 2017 005.jpg",
+      "mime": "image/jpeg",
+      "bytes": 717458
+    },
+    {
+      "dict": "YU_GARDEN_IMAGES",
+      "key": "great_rockery",
+      "asset": "/assets/guides/shanghai/yu-garden/great-rockery.jpg",
+      "query": "Great Rockery Yu Garden Shanghai",
+      "source": "https://commons.wikimedia.org/wiki/File%3ALovely_landscaping-_the_Huge_Rockery_in_Yu_Garden_%2835607245544%29.jpg",
+      "title": "File:Lovely landscaping- the Huge Rockery in Yu Garden (35607245544).jpg",
+      "mime": "image/jpeg",
+      "bytes": 1139659
+    },
+    {
+      "dict": "YU_GARDEN_IMAGES",
+      "key": "dianchun_hall",
+      "asset": "/assets/guides/shanghai/yu-garden/dianchun-hall.jpg",
+      "query": "Dianchun Hall Yu Garden Shanghai",
+      "source": "https://commons.wikimedia.org/wiki/File%3AYu_Garden%2C_Shanghai_%2838043432695%29.jpg",
+      "title": "File:Yu Garden, Shanghai (38043432695).jpg",
+      "mime": "image/jpeg",
+      "bytes": 1171621
+    },
+    {
+      "dict": "SHANGHAI_MUSEUM_IMAGES",
+      "key": "museum_hall",
+      "asset": "/assets/guides/shanghai/shanghai-museum/museum-hall.jpg",
+      "query": "Shanghai Museum hall interior",
+      "source": "https://www.flickr.com/photos/87616709@N00/4805827323",
+      "title": "DSC01267",
+      "mime": "image/jpeg",
+      "bytes": 211446
+    },
+    {
+      "dict": "SHANGHAI_MUSEUM_IMAGES",
+      "key": "ceramics_gallery",
+      "asset": "/assets/guides/shanghai/shanghai-museum/ceramics-gallery.jpg",
+      "query": "Shanghai Museum ceramics gallery",
+      "source": "https://commons.wikimedia.org/wiki/File%3ATang_Pottery_Figures_on_Horseback%2C_Shanghai.jpg",
+      "title": "File:Tang Pottery Figures on Horseback, Shanghai.jpg",
+      "mime": "image/jpeg",
+      "bytes": 327832
+    },
+    {
+      "dict": "SHANGHAI_MUSEUM_IMAGES",
+      "key": "calligraphy_gallery",
+      "asset": "/assets/guides/shanghai/shanghai-museum/calligraphy-gallery.jpg",
+      "query": "Shanghai Museum calligraphy gallery",
+      "source": "https://commons.wikimedia.org/wiki/File%3AShanghai_Museum_2006_10-24.jpg",
+      "title": "File:Shanghai Museum 2006 10-24.jpg",
+      "mime": "image/jpeg",
+      "bytes": 402031
+    },
+    {
+      "dict": "SHANGHAI_MUSEUM_IMAGES",
+      "key": "painting_gallery",
+      "asset": "/assets/guides/shanghai/shanghai-museum/painting-gallery.jpg",
+      "query": "Shanghai Museum painting gallery",
+      "source": "https://commons.wikimedia.org/wiki/File%3AShanghai_Museum_2006_10-24.jpg",
+      "title": "File:Shanghai Museum 2006 10-24.jpg",
+      "mime": "image/jpeg",
+      "bytes": 402031
+    },
+    {
+      "dict": "SHANGHAI_MUSEUM_IMAGES",
+      "key": "jade_gallery",
+      "asset": "/assets/guides/shanghai/shanghai-museum/jade-gallery.jpg",
+      "query": "Shanghai Museum jade gallery",
+      "source": "https://commons.wikimedia.org/wiki/File%3AShanghai_East_Museum_-_54132351737.jpg",
+      "title": "File:Shanghai East Museum - 54132351737.jpg",
+      "mime": "image/jpeg",
+      "bytes": 959247
+    },
+    {
+      "dict": "SHENZHEN_BAY_IMAGES",
+      "key": "shenzhen_bay_bridge",
+      "asset": "/assets/guides/shenzhen/shenzhen-bay-park/shenzhen-bay-bridge.jpg",
+      "query": "Shenzhen Bay Bridge view",
+      "source": "https://commons.wikimedia.org/wiki/File%3AShenzhen_Bay_Bridge_To_HK_on_Shenzhen_Side.jpg",
+      "title": "File:Shenzhen Bay Bridge To HK on Shenzhen Side.jpg",
+      "mime": "image/jpeg",
+      "bytes": 959985
+    },
+    {
+      "dict": "SHENZHEN_BAY_IMAGES",
+      "key": "sunrise_theater",
+      "asset": "/assets/guides/shenzhen/shenzhen-bay-park/sunrise-theater.jpg",
+      "query": "Shenzhen Bay Park Sunrise Theater",
+      "source": "https://commons.wikimedia.org/wiki/File%3AShenzhen_Bay_Park_Sunrise_Theatre_20210904.jpg",
+      "title": "File:Shenzhen Bay Park Sunrise Theatre 20210904.jpg",
+      "mime": "image/jpeg",
+      "bytes": 470005
+    },
+    {
+      "dict": "SHENZHEN_BAY_IMAGES",
+      "key": "mangrove_direction",
+      "asset": "/assets/guides/shenzhen/shenzhen-bay-park/mangrove-direction.jpg",
+      "query": "深圳湾 红树林",
+      "source": "https://commons.wikimedia.org/wiki/File%3A%E8%BF%9C%E6%96%B9%E7%9A%84%E6%B7%B1%E5%9C%B3%E6%B9%BE%E5%A4%A7%E6%A1%A5_-_panoramio.jpg",
+      "title": "File:远方的深圳湾大桥 - panoramio.jpg",
+      "mime": "image/jpeg",
+      "bytes": 966413
+    },
+    {
+      "dict": "LIANHUASHAN_IMAGES",
+      "key": "summit_square",
+      "asset": "/assets/guides/shenzhen/lianhuashan-park/summit-square.jpg",
+      "query": "莲花山公园 山顶广场",
+      "source": "https://commons.wikimedia.org/wiki/File%3ACivic_Centre_and_Futian_CBD%2C_Shenzhen_-_20251227%2C_views_from_Lianhuashan_Park.jpg",
+      "title": "File:Civic Centre and Futian CBD, Shenzhen - 20251227, views from Lianhuashan Park.jpg",
+      "mime": "image/jpeg",
+      "bytes": 669854
+    },
+    {
+      "dict": "DAPENG_FORTRESS_IMAGES",
+      "key": "south_gate",
+      "asset": "/assets/guides/shenzhen/dapeng-fortress/south-gate.jpg",
+      "query": "Dapeng Fortress south gate Shenzhen",
+      "source": "https://commons.wikimedia.org/wiki/File%3ADapeng_Fortress%2C_Shenzhen_%2844%29.jpg",
+      "title": "File:Dapeng Fortress, Shenzhen (44).jpg",
+      "mime": "image/jpeg",
+      "bytes": 564188
+    },
+    {
+      "dict": "DAPENG_FORTRESS_IMAGES",
+      "key": "general_house",
+      "asset": "/assets/guides/shenzhen/dapeng-fortress/general-house.jpg",
+      "query": "大鹏所城 赖恩爵 将军第",
+      "source": "https://www.flickr.com/photos/49865865@N04/4578484820",
+      "title": "大鹏所城 赖恩爵 振威将军第",
+      "mime": "image/jpeg",
+      "bytes": 223880
+    },
+    {
+      "dict": "BEIHAI_PARK_IMAGES",
+      "key": "white_pagoda",
+      "asset": "/assets/guides/beijing/beihai-park/white-pagoda.jpg",
+      "query": "Beihai Park White Dagoba Beijing",
+      "source": "https://commons.wikimedia.org/wiki/File%3ABeihai_Park_IMG_4410_Beihai_Lake_-_Jade_Island_-_white_dagoba.jpg",
+      "title": "File:Beihai Park IMG 4410 Beihai Lake - Jade Island - white dagoba.jpg",
+      "mime": "image/jpeg",
+      "bytes": 234147
+    },
+    {
+      "dict": "BEIHAI_PARK_IMAGES",
+      "key": "nine_dragon_wall",
+      "asset": "/assets/guides/beijing/beihai-park/nine-dragon-wall.jpg",
+      "query": "Nine Dragon Wall Beihai Park Beijing",
+      "source": "https://commons.wikimedia.org/wiki/File%3ANine_Dragon_Wall%2C_Beihai_Park_1.jpg",
+      "title": "File:Nine Dragon Wall, Beihai Park 1.jpg",
+      "mime": "image/jpeg",
+      "bytes": 775300
+    },
+    {
+      "dict": "BEIHAI_PARK_IMAGES",
+      "key": "five_dragon_pavilions",
+      "asset": "/assets/guides/beijing/beihai-park/five-dragon-pavilions.jpg",
+      "query": "Five Dragon Pavilions Beihai Park Beijing",
+      "source": "https://commons.wikimedia.org/wiki/File%3APeking_Beihai_Park_Five_dragon_Pavilions-20110104-RM-110237.jpg",
+      "title": "File:Peking Beihai Park Five dragon Pavilions-20110104-RM-110237.jpg",
+      "mime": "image/jpeg",
+      "bytes": 679495
+    },
+    {
+      "dict": "BEIHAI_PARK_IMAGES",
+      "key": "lake_view",
+      "asset": "/assets/guides/beijing/beihai-park/lake-view.jpg",
+      "query": "Beihai Park lake Beijing",
+      "source": "https://commons.wikimedia.org/wiki/File%3ABeihai_Park_Kunming_Lake_Winter-20110104-RM-140211.jpg",
+      "title": "File:Beihai Park Kunming Lake Winter-20110104-RM-140211.jpg",
+      "mime": "image/jpeg",
+      "bytes": 836298
+    },
+    {
+      "dict": "YONGHE_TEMPLE_IMAGES",
+      "key": "wanfu_pavilion",
+      "asset": "/assets/guides/beijing/yonghe-temple/wanfu-pavilion.jpg",
+      "query": "Yonghe Temple Wanfu Pavilion Beijing",
+      "source": "https://commons.wikimedia.org/wiki/File%3ABeijing_2009-0994.jpg",
+      "title": "File:Beijing 2009-0994.jpg",
+      "mime": "image/jpeg",
+      "bytes": 1001291
+    }
+  ],
+  "failures": [
+    {
+      "dict": "BADALING_IMAGES",
+      "key": "wangjing_stone",
+      "target": "beijing/badaling-great-wall/wangjing-stone.jpg",
+      "queries": [
+        "Badaling Wangjing Stone",
+        "八达岭 望京石"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "BADALING_IMAGES",
+      "key": "hero_tablet",
+      "target": "beijing/badaling-great-wall/hero-tablet.jpg",
+      "queries": [
+        "Badaling Great Wall hero tablet",
+        "八达岭 好汉碑"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "BADALING_IMAGES",
+      "key": "north_tower_2",
+      "target": "beijing/badaling-great-wall/north-tower-2.jpg",
+      "queries": [
+        "Badaling Great Wall North second tower",
+        "八达岭 北二楼"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "BADALING_IMAGES",
+      "key": "north_tower_4",
+      "target": "beijing/badaling-great-wall/north-tower-4.jpg",
+      "queries": [
+        "Badaling Great Wall North fourth tower",
+        "八达岭 北四楼"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "BADALING_IMAGES",
+      "key": "south_tower_4",
+      "target": "beijing/badaling-great-wall/south-tower-4.jpg",
+      "queries": [
+        "Badaling Great Wall South fourth tower",
+        "八达岭 南四楼"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "BADALING_IMAGES",
+      "key": "zhan_tianyou_memorial",
+      "target": "beijing/badaling-great-wall/zhan-tianyou-memorial.jpg",
+      "queries": [
+        "Zhan Tianyou Memorial Hall Badaling",
+        "八达岭 詹天佑纪念馆"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "OLD_SUMMER_PALACE_IMAGES",
+      "key": "danbo_ningjing",
+      "target": "beijing/old-summer-palace/danbo-ningjing.jpg",
+      "queries": [
+        "Old Summer Palace Danbo Ningjing",
+        "圆明园 澹泊宁静"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "GUANGZHOU_TOWER_IMAGES",
+      "key": "sky_drop",
+      "target": "guangzhou/canton-tower/sky-drop.jpg",
+      "queries": [
+        "Canton Tower sky drop",
+        "广州塔 极速云霄"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "BAIYUN_MOUNTAIN_IMAGES",
+      "key": "mingzhu_tower",
+      "target": "guangzhou/baiyun-mountain/mingzhu-tower.jpg",
+      "queries": [
+        "Mingzhu Tower Baiyun Mountain Guangzhou",
+        "白云山 明珠楼"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "CHEN_CLAN_ACADEMY_IMAGES",
+      "key": "juxian_hall",
+      "target": "guangzhou/chen-clan-academy/juxian-hall.jpg",
+      "queries": [
+        "Chen Clan Ancestral Hall Juxian Hall",
+        "陈家祠 聚贤堂"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "CHEN_CLAN_ACADEMY_IMAGES",
+      "key": "pottery_plaster",
+      "target": "guangzhou/chen-clan-academy/pottery-plaster.jpg",
+      "queries": [
+        "Chen Clan Ancestral Hall pottery ridge plaster sculpture",
+        "陈家祠 陶塑 灰塑"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "SHAMIAN_ISLAND_IMAGES",
+      "key": "riverfront",
+      "target": "guangzhou/shamian-island/riverfront.jpg",
+      "queries": [
+        "Shamian Island riverfront Pearl River Guangzhou",
+        "沙面 白鹅潭 江边"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "SHENZHEN_BAY_IMAGES",
+      "key": "coastal_promenade",
+      "target": "shenzhen/shenzhen-bay-park/coastal-promenade.jpg",
+      "queries": [
+        "Shenzhen Bay Park coastal promenade",
+        "深圳湾公园 滨海步道"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "LIANHUASHAN_IMAGES",
+      "key": "kite_square",
+      "target": "shenzhen/lianhuashan-park/kite-square.jpg",
+      "queries": [
+        "Lianhuashan Park kite square Shenzhen",
+        "莲花山公园 风筝广场"
+      ],
+      "error": "RuntimeError(\"<HTTPError 429: 'Too Many Requests'>\")"
+    },
+    {
+      "dict": "LIANHUASHAN_IMAGES",
+      "key": "summit_trail",
+      "target": "shenzhen/lianhuashan-park/summit-trail.jpg",
+      "queries": [
+        "Lianhuashan Park summit trail Shenzhen",
+        "莲花山公园 山顶步道"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "LIANHUASHAN_IMAGES",
+      "key": "city_view",
+      "target": "shenzhen/lianhuashan-park/city-view.jpg",
+      "queries": [
+        "Lianhuashan Park Shenzhen city view Civic Center",
+        "莲花山公园 城市观景台"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "LIANHUASHAN_IMAGES",
+      "key": "lake_lawn",
+      "target": "shenzhen/lianhuashan-park/lake-lawn.jpg",
+      "queries": [
+        "Lianhuashan Park lake lawn Shenzhen",
+        "莲花山公园 湖区 草坪"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    },
+    {
+      "dict": "DAPENG_FORTRESS_IMAGES",
+      "key": "old_lanes",
+      "target": "shenzhen/dapeng-fortress/old-lanes.jpg",
+      "queries": [
+        "Dapeng Fortress old lanes Shenzhen",
+        "大鹏所城 古城街巷"
+      ],
+      "error": "RuntimeError('no Commons image candidate')"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#efe3c5"/>
+  <path d="M90 90 C330 20 610 55 800 180 C1040 340 1045 575 835 675 C620 780 280 705 135 540 C10 400 -40 165 90 90 Z" fill="#80c2d9"/>
+  <path d="M510 215 C645 170 760 235 790 355 C830 520 650 600 510 525 C390 460 380 265 510 215 Z" fill="#86a96b"/>
+  <circle cx="615" cy="360" r="58" fill="#f4f0db" stroke="#bda56d" stroke-width="10"/>
+  <rect x="865" y="260" width="165" height="95" rx="12" fill="#b85a44"/>
+  <text x="95" y="80" font-size="40" font-family="Arial, sans-serif" fill="#395063" font-weight="700">北海公园</text>
+  <text x="560" y="375" font-size="28" font-family="Arial, sans-serif" fill="#51422e" font-weight="700">白塔</text>
+</svg>

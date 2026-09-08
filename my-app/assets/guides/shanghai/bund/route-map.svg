@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#f3ead6"/>
+  <path d="M740 0 C690 130 705 230 760 330 C820 440 805 555 735 760 L1200 760 L1200 0 Z" fill="#86c5dd"/>
+  <path d="M730 0 C675 135 695 240 748 335 C805 445 790 560 720 760" fill="none" stroke="#4d93b6" stroke-width="10" opacity=".35"/>
+  <rect x="70" y="92" width="520" height="80" rx="10" fill="#bf6b45"/>
+  <rect x="110" y="210" width="470" height="76" rx="10" fill="#d6a34f"/>
+  <rect x="80" y="330" width="530" height="82" rx="10" fill="#b9513f"/>
+  <rect x="120" y="470" width="430" height="70" rx="10" fill="#d9b36a"/>
+  <rect x="85" y="610" width="520" height="72" rx="10" fill="#a95342"/>
+  <path d="M640 50 L635 710" stroke="#8b6f4a" stroke-width="22" stroke-linecap="round"/>
+  <text x="95" y="60" font-size="40" font-family="Arial, sans-serif" fill="#463a2b" font-weight="700">外滩</text>
+  <text x="815" y="95" font-size="34" font-family="Arial, sans-serif" fill="#245b78" font-weight="700">黄浦江</text>
+</svg>

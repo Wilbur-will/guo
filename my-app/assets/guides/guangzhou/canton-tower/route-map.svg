@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820">
+  <rect width="1200" height="820" fill="#eef4f8"/>
+  <path d="M0 560 C240 500 360 610 560 555 C760 500 880 430 1200 470 L1200 820 L0 820 Z" fill="#91c9d6"/>
+  <path d="M0 585 C240 525 370 640 575 580 C760 525 890 455 1200 500" fill="none" stroke="#5aa7ba" stroke-width="18" opacity=".45"/>
+  <rect x="60" y="80" width="1080" height="360" rx="36" fill="#d7e8d3"/>
+  <path d="M120 410 C250 340 410 330 550 380 C700 435 860 405 1060 320 L1060 440 L120 440 Z" fill="#b6d39d"/>
+  <rect x="470" y="190" width="160" height="230" rx="24" fill="#cf6d48"/>
+  <path d="M500 190 L550 105 L610 190 Z" fill="#d0ab3a"/>
+  <rect x="425" y="425" width="250" height="44" rx="18" fill="#d7b064"/>
+  <rect x="330" y="525" width="420" height="32" rx="16" fill="#f6e2a8"/>
+  <circle cx="345" cy="575" r="18" fill="#f6e2a8"/>
+  <circle cx="735" cy="575" r="18" fill="#f6e2a8"/>
+  <path d="M120 635 C250 670 390 665 530 630 C710 585 900 590 1080 640" fill="none" stroke="#f4d88b" stroke-width="28" opacity=".75"/>
+  <text x="64" y="70" fill="#325162" font-size="34" font-family="Arial, sans-serif" font-weight="700">广州塔导览示意图</text>
+  <text x="880" y="760" fill="#325162" font-size="28" font-family="Arial, sans-serif">珠江 · 海心沙 · 城市中轴</text>
+</svg>

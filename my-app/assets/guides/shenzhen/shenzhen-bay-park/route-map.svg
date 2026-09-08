@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#e7f0df"/>
+  <path d="M0 420 C210 330 390 370 560 430 C750 500 930 460 1200 355 L1200 760 L0 760 Z" fill="#7fc6df"/>
+  <path d="M70 360 C260 310 410 345 570 395 C760 455 930 420 1125 315" fill="none" stroke="#6b9166" stroke-width="34" stroke-linecap="round"/>
+  <path d="M82 350 C270 302 418 335 578 386 C760 445 928 410 1120 305" fill="none" stroke="#f2d486" stroke-width="14" stroke-linecap="round"/>
+  <rect x="210" y="170" width="110" height="150" rx="10" fill="#b85a44"/>
+  <rect x="410" y="130" width="90" height="190" rx="10" fill="#c99b52"/>
+  <rect x="630" y="150" width="120" height="160" rx="10" fill="#b85a44"/>
+  <text x="90" y="95" font-size="40" font-family="Arial, sans-serif" fill="#2c4e45" font-weight="700">深圳湾公园</text>
+  <text x="820" y="635" font-size="34" font-family="Arial, sans-serif" fill="#245b78" font-weight="700">深圳湾</text>
+</svg>

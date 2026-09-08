@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Local environment
+.env
+.env.*
+!.env.example
+oracle_guo_chuang_key
+oracle_guo_chuang_key.pub
+
+# Local databases and runtime state
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Node / frontend build artifacts
+node_modules/
+dist/
+build/
+.vite/
+
+# Test and coverage output
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>精选体验模块</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f5f1ea;
+            color: #1f2725;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .experience-feature-section {
+            width: min(100%, 827px);
+            padding: 20px 30px 28px;
+        }
+
+        .experience-feature-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .experience-feature-kicker {
+            display: block;
+            color: #2b7463;
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+
+        .experience-feature-header h2 {
+            margin-top: 12px;
+            color: #1f2725;
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.18;
+            letter-spacing: 0;
+        }
+
+        .experience-feature-list {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 10px;
+            scrollbar-width: none;
+        }
+
+        .experience-feature-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .experience-feature-card {
+            position: relative;
+            flex: 0 0 min(612px, calc(100vw - 60px));
+            min-height: 348px;
+            overflow: hidden;
+            border-radius: 24px;
+            background: #10211f;
+            color: #fff;
+            cursor: pointer;
+            scroll-snap-align: start;
+            box-shadow: 0 22px 42px rgba(10, 28, 25, 0.16);
+        }
+
+        .experience-feature-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.78;
+        }
+
+        .experience-feature-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(14, 30, 27, 0.92), rgba(14, 30, 27, 0.12));
+        }
+
+        .experience-feature-card-body {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            width: 70%;
+            height: 100%;
+            min-height: 348px;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 42px 34px 32px;
+        }
+
+        .experience-feature-card-body span {
+            margin-bottom: 16px;
+            color: #9de1c8;
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1.15;
+        }
+
+        .experience-feature-card-body h3 {
+            margin-bottom: 22px;
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: 0;
+        }
+
+        .experience-feature-card-body p {
+            display: -webkit-box;
+            overflow: hidden;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.55;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .experience-feature-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .experience-feature-meta b {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            border: 2px solid rgba(255, 255, 255, 0.42);
+            border-radius: 24px;
+            padding: 8px 18px;
+            color: #fff;
+            font-size: 21px;
+            font-weight: 900;
+            line-height: 1;
+            backdrop-filter: blur(2px);
+        }
+
+        @media (max-width: 640px) {
+            .experience-feature-section {
+                padding: 18px 18px 24px;
+            }
+
+            .experience-feature-kicker {
+                font-size: 18px;
+            }
+
+            .experience-feature-header h2 {
+                font-size: 30px;
+            }
+
+            .experience-feature-card {
+                flex-basis: calc(100vw - 36px);
+                min-height: 286px;
+                border-radius: 20px;
+            }
+
+            .experience-feature-card-body {
+                width: 76%;
+                min-height: 286px;
+                padding: 28px 24px 24px;
+            }
+
+            .experience-feature-card-body span,
+            .experience-feature-card-body p {
+                font-size: 18px;
+            }
+
+            .experience-feature-card-body h3 {
+                font-size: 36px;
+                margin-bottom: 14px;
+            }
+
+            .experience-feature-meta b {
+                min-height: 40px;
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="experience-feature-section" id="experienceFeatureSection">
+        <div class="experience-feature-header">
+            <div>
+                <span class="experience-feature-kicker">精选体验</span>
+                <h2>像真的走进去一样认识一个景点</h2>
+            </div>
+        </div>
+
+        <div class="experience-feature-list" id="experienceFeatureList">
+            <article class="experience-feature-card" aria-label="东交民巷精选体验">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/15%20Dongjiaomin%20Alley.jpeg?width=900"
+                    alt="东交民巷"
+                >
+                <div class="experience-feature-card-body">
+                    <span>北京老城里的西洋街影</span>
+                    <h3>东交民巷</h3>
+                    <p>不急着赶路，沿着树影、砖墙和旧使馆建筑慢慢走，把北京最特殊的一段近代城市记忆看进细节里。</p>
+                    <div class="experience-feature-meta">
+                        <b>图文深游</b>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

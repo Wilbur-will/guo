@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#efe4c8"/>
+  <path d="M110 120 H1090 V650 H110 Z" fill="#d8e3ba" stroke="#b79855" stroke-width="10"/>
+  <path d="M210 235 C330 160 480 210 520 300 C580 430 730 380 820 300 C900 230 1010 250 1050 360 C1095 495 925 595 760 560 C620 530 505 610 360 570 C210 530 130 405 210 235 Z" fill="#91c5b1"/>
+  <path d="M450 390 C560 330 655 330 770 395" fill="none" stroke="#d0a84f" stroke-width="28" stroke-linecap="round" stroke-dasharray="50 35"/>
+  <rect x="245" y="205" width="135" height="80" rx="8" fill="#b85a44"/>
+  <rect x="505" y="205" width="160" height="95" rx="8" fill="#c66c43"/>
+  <rect x="780" y="285" width="150" height="85" rx="8" fill="#b85a44"/>
+  <rect x="375" y="475" width="180" height="88" rx="8" fill="#c99b52"/>
+  <text x="155" y="92" font-size="40" font-family="Arial, sans-serif" fill="#4d3e25" font-weight="700">豫园</text>
+  <text x="455" y="430" font-size="32" font-family="Arial, sans-serif" fill="#4d3e25" font-weight="700">九曲桥</text>
+</svg>
