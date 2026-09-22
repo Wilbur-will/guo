@@ -11,6 +11,18 @@ jobs:
     steps:
       - name: Ping Render app
         run: |
-          curl --fail --silent --show-error --location --max-time 60 \
-            https://guo-chuang.onrender.com/ \
-            --output /dev/null
+          for attempt in 1 2 3; do
+            echo "Keepalive attempt ${attempt}"
+            if curl --fail --silent --show-error --location \
+              --connect-timeout 20 \
+              --max-time 120 \
+              https://guo-chuang.onrender.com/ \
+              --output /dev/null; then
+              echo "Render app responded successfully"
+              exit 0
+            fi
+            sleep 20
+          done
+
+          echo "Render app did not respond after retries"
+          exit 1
