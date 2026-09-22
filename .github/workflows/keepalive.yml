@@ -2,27 +2,31 @@ name: Keep Render service awake
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "2-59/5 * * * *"
   workflow_dispatch:
+
+concurrency:
+  group: keep-render-service-awake
+  cancel-in-progress: true
 
 jobs:
   ping:
     runs-on: ubuntu-latest
+    timeout-minutes: 6
     steps:
       - name: Ping Render app
         run: |
-          for attempt in 1 2 3; do
-            echo "Keepalive attempt ${attempt}"
-            if curl --fail --silent --show-error --location \
+          for attempt in 1 2 3 4 5 6 7 8; do
+            echo "Keepalive attempt ${attempt} at $(date -u)"
+            curl --fail --silent --show-error --location \
               --connect-timeout 20 \
               --max-time 120 \
               https://guo-chuang.onrender.com/ \
-              --output /dev/null; then
-              echo "Render app responded successfully"
-              exit 0
+              --output /dev/null || true
+
+            if [ "${attempt}" != "8" ]; then
+              sleep 30
             fi
-            sleep 20
           done
 
-          echo "Render app did not respond after retries"
-          exit 1
+          echo "Keepalive window finished"
