@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from datetime import datetime
+import asyncio
 import sqlite3
 import math
 import json
@@ -62,6 +63,11 @@ app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 @app.get("/")
 async def read_root():
     return FileResponse("index.html")
+
+@app.get("/keepalive")
+async def keepalive():
+    await asyncio.sleep(60)
+    return {"status": "awake", "waited_seconds": 60}
 
 class User(BaseModel):
     username: str
