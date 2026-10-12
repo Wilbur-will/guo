@@ -1,4 +1,5 @@
 name: Keep Render service awake
+# Calls /keepalive, which holds the request open for about one minute.
 
 on:
   push:
