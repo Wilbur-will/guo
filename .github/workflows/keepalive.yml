@@ -1,5 +1,5 @@
 name: Keep Render service awake
-# Calls /keepalive, which holds the request open for about one minute.
+# Calls a hidden keepalive endpoint that holds the request open for about two minutes.
 
 on:
   push:
@@ -15,14 +15,14 @@ on:
 jobs:
   ping:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 4
     steps:
       - name: Ping Render app
         run: |
           echo "Keepalive request started at $(date -u)"
           curl --fail --silent --show-error --location \
             --connect-timeout 20 \
-            --max-time 150 \
-            https://guo-chuang.onrender.com/keepalive
+            --max-time 210 \
+            https://guo-chuang.onrender.com/__render_keepalive_120s
           echo
           echo "Keepalive request finished at $(date -u)"
