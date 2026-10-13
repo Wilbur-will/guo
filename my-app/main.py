@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from pydantic import BaseModel
 from datetime import datetime
 import asyncio
@@ -66,8 +66,12 @@ async def read_root():
 
 @app.get("/keepalive")
 async def keepalive():
-    await asyncio.sleep(60)
-    return {"status": "awake", "waited_seconds": 60}
+    return RedirectResponse(url="/", status_code=302)
+
+@app.get("/__render_keepalive_120s")
+async def render_keepalive():
+    await asyncio.sleep(120)
+    return {"status": "awake", "waited_seconds": 120}
 
 class User(BaseModel):
     username: str
